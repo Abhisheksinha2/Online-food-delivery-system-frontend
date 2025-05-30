@@ -18,7 +18,6 @@ import Profile from './components/Dashboard/Profile.jsx';
 import Orders from './components/Dashboard/Orders.jsx';
 import AddMenuItem from './components/Dashboard/AddMenuItem.jsx';
 import MenuItems from './components/Dashboard/MenuItems.jsx';
-import UpdateOrderStatus from './components/Dashboard/UpdateOrderStatus.jsx';
 import ProtectedRoute from './components/Shared/ProtectedRoute.jsx';
 import { StoreContextProvider } from './components/context/StoreContext.jsx'; // Import StoreContextProvider
 
@@ -44,7 +43,7 @@ const router = createBrowserRouter(
         <Route path="profile" element={<Profile />} />
         <Route path="orders" element={<Orders />} />
         <Route path="add-menu-item" element={<AddMenuItem />} />
-        <Route path="update-order-status" element={<UpdateOrderStatus />} />
+      
         <Route path="menu-items" element={<MenuItems />} />
       </Route>
       <Route loader={githubInfoLoader} path="github" element={<Github />} />
