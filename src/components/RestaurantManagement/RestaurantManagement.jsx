@@ -1,13 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import DashboardNav from "../Dashboard/DashboardNav";
-
+import Orders from "../Dashboard/Orders";
 const RestaurantManagement = () => {
   return (
     <div>
-      <DashboardNav />
+      {/* <DashboardNav /> */}
+      
       <div className="p-4">
-        <h1 className="text-3xl font-bold"> Dashboard</h1>
        
         <Outlet /> {/* Render child routes here */}
       </div>

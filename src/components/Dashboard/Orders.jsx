@@ -138,12 +138,7 @@ const Orders = () => {
                 >
                   Ready to Pickup
                 </button>
-                <button
-                  onClick={() => updateOrderStatus(order.orderID, "completed")}
-                  className="bg-green-500 text-white py-1 px-4 rounded-lg hover:bg-green-600"
-                >
-                  Completed
-                </button>
+              
               </div>
             </li>
           ))}

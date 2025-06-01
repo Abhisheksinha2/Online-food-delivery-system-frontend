@@ -40,6 +40,7 @@ const router = createBrowserRouter(
         }
       >
         {/* Child routes for Restaurant Management */}
+        <Route index element={<Orders />} />
         <Route path="profile" element={<Profile />} />
         <Route path="orders" element={<Orders />} />
         <Route path="add-menu-item" element={<AddMenuItem />} />
