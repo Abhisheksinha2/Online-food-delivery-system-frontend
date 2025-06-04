@@ -14,10 +14,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Register from './components/Register/Register.jsx';
 import Login from './components/login/login.jsx';
 import RestaurantManagement from './components/RestaurantManagement/RestaurantManagement.jsx';
-import Profile from './components/Dashboard/Profile.jsx';
-import Orders from './components/Dashboard/Orders.jsx';
-import AddMenuItem from './components/Dashboard/AddMenuItem.jsx';
-import MenuItems from './components/Dashboard/MenuItems.jsx';
+import Profile from './components/RestaurantManagement/Dashboard/Profile.jsx'
+import Orders from './components/RestaurantManagement/Dashboard/ActiveOrders.jsx'
+import AddMenuItem from './components/RestaurantManagement/Dashboard/AddMenuItem.jsx'
+import MenuItems from './components/RestaurantManagement/Dashboard/MenuItems.jsx'
 import ProtectedRoute from './components/Shared/ProtectedRoute.jsx';
 import { StoreContextProvider } from './components/context/StoreContext.jsx'; // Import StoreContextProvider
 

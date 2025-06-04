@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StoreContext } from "../Context/StoreContext";
+import { StoreContext } from "../../Context/StoreContext";
 import { toast } from "react-toastify";
 
 const Profile = () => {

@@ -1,11 +1,16 @@
 import React, { useState, useContext } from "react";
-import { StoreContext } from "../context/StoreContext";
+import { StoreContext } from "../../context/StoreContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddMenuItem = () => {
   const { user, token } = useContext(StoreContext); // Access user and token from context
-  const [menuItem, setMenuItem] = useState({ name: "", description: "", price: "" });
+  const [menuItem, setMenuItem] = useState({
+    name: "",
+    description: "",
+    price: "",
+    imageURL: "", // Added imageURL field
+  });
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -35,7 +40,7 @@ const AddMenuItem = () => {
           progress: undefined,
           theme: "colored",
         });
-        setMenuItem({ name: "", description: "", price: "" }); // Reset form
+        setMenuItem({ name: "", description: "", price: "", imageURL: "" }); // Reset form
       } else {
         const errorData = await response.json();
         toast.error(errorData.message || "Failed to add menu item.", {
@@ -105,6 +110,26 @@ const AddMenuItem = () => {
             placeholder="Enter item price"
             required
           />
+        </div>
+        <div className="mb-4 flex items-center">
+          <label className="block text-gray-700 font-medium mb-2">Image URL</label>
+          <input
+            name="imageURL"
+            onChange={onChangeHandler}
+            value={menuItem.imageURL}
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter image URL"
+            required
+          />
+          <button
+            type="button"
+            onClick={() =>
+              window.open(`https://www.google.com/search?q=images/${menuItem.name}`, "_blank")
+            }
+            className="ml-2 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            Search Images
+          </button>
         </div>
         <button
           type="submit"

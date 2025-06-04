@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import DashboardNav from "../Dashboard/DashboardNav";
-import Orders from "../Dashboard/Orders";
+import DashboardNav from "./Dashboard/DashboardNav";
+import Orders from "./Dashboard/ActiveOrders";
 const RestaurantManagement = () => {
   return (
     <div>

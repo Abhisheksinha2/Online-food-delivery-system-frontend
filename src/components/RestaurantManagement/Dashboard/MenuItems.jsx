@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StoreContext } from "../context/StoreContext";
+import { StoreContext } from "../../context/StoreContext";
 import { toast } from "react-toastify";
 
 const MenuItems = () => {
@@ -67,19 +67,19 @@ const MenuItems = () => {
     }
   };
 
-  // Handle edit menu item
+  // Handle edit menu item using PATCH method
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(
         `https://localhost:7274/api/MenuItem/${editItem.itemID}`,
         {
-          method: "PUT",
+          method: "PATCH", // Use PATCH method
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json-patch+json",
             Authorization: `Bearer ${token}`, // Include the token
           },
-          body: JSON.stringify(editItem),
+          body: JSON.stringify(editItem), // Send updated item data
         }
       );
 
@@ -120,7 +120,7 @@ const MenuItems = () => {
               src={
                 item.imageUrl ||
                 "https://cdn.britannica.com/08/177308-050-94D9D6BE/Food-Pizza-Basil-Tomato.jpg"
-              } // Placeholder image if no image URL is provided
+              } // Use imageURL or fallback to placeholder image
               alt={item.name}
               className="w-full h-40 object-cover rounded-md mb-4"
             />
@@ -191,6 +191,27 @@ const MenuItems = () => {
                 className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
+            </div>
+            <div className="mb-4 flex items-center">
+              <label className="block text-gray-700 mb-2">Image URL</label>
+              <input
+                type="text"
+                value={editItem.imageUrl}
+                onChange={(e) =>
+                  setEditItem((prev) => ({ ...prev, imageUrl: e.target.value }))
+                }
+                className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  window.open(`https://www.google.com/search?q=images/${editItem.name}`, "_blank")
+                }
+                className="ml-2 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+              >
+                Search Images
+              </button>
             </div>
             <div className="flex justify-end">
               <button
